@@ -9,7 +9,7 @@ September 23, 2024
 ### Zone 1
 
 |  | Path Length | Max Distance |
-| - | - | - |
+| - | - | - | - |
 | **Trial 1** | 97.5 | 9.57 | Blue |
 | **Trial 2** | 76.4 | 8.76 | Green |
 | **Trial 3** | 72.6 | 9.02 | Yellow |
@@ -29,7 +29,7 @@ September 23, 2024
 ### Zone 2
 
 |  | Path Length | Max Distance |
-| - | - | - |
+| - | - | - | - |
 | **Trial 1** | 89.1 | 7.83 | Blue |
 | **Trial 2** | 86.5 | 7.54 | Green |
 | **Trial 3** | 96.1 | 10.6 | Yellow |
@@ -49,7 +49,7 @@ September 23, 2024
 ### Zone 3
 
 |  | Path Length | Max Distance |
-| - | - | - |
+| - | - | - | - |
 | **Trial 1** | 92.4 | 9.93 | Blue |
 | **Trial 2** | 83.9 | 7.92 | Green |
 | **Trial 3** | 83.7 | 10.9 | Yellow |
@@ -69,7 +69,7 @@ September 23, 2024
 ### Zone 4
 
 |  | Path Length | Max Distance |
-| - | - | - |
+| - | - | - | - |
 | **Trial 1** | 90.5 | 8.24 | Blue |
 | **Trial 2** | 127.1 | 8.23 | Green |
 | **Trial 3** | 147.3 | 7.32 | Yellow |
