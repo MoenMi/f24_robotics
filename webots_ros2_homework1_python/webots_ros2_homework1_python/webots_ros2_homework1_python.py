@@ -13,9 +13,9 @@ import time
 import csv
 
 LINEAR_VEL = 0.22
-STOP_DISTANCE = 0.35
+STOP_DISTANCE = 0.37
 LIDAR_ERROR = 0.05
-LIDAR_AVOID_DISTANCE = 0.8
+LIDAR_AVOID_DISTANCE = 0.78
 # LIDAR_AVOID_DISTANCE = 0.5
 SAFE_STOP_DISTANCE = STOP_DISTANCE + LIDAR_ERROR
 RIGHT_SIDE_INDEX = 270
@@ -24,7 +24,7 @@ LEFT_FRONT_INDEX = 150
 LEFT_SIDE_INDEX = 90
 FILENAME = f'trial-{time.time()}.csv'
 
-STALL_THRESHOLD = 0.02
+STALL_THRESHOLD = 0.017
 STALL_TIME_LIMIT = 7
 
 class RandomWalk(Node):
@@ -136,7 +136,6 @@ class RandomWalk(Node):
         # Angular z - rotates CW (right) when negative, CCW (left) when positive
         # Linear x - moves forward when positive, backward when negative
 
-
         if not self.last_position:
             self.last_position = (left_lidar_min, front_lidar_min, right_lidar_min)
         else:
@@ -167,21 +166,6 @@ class RandomWalk(Node):
             self.cmd.angular.z = 0.5
             self.publisher_.publish(self.cmd)
             self.stall_count = 5
-
-            # rclpy.spin_once(self, timeout_sec=0.5)
-            # sleep(0.5)
-
-            # self.cmd.linear.x = 0.0
-            # self.cmd.angular.z = 0.3
-            # self.publisher_.publish(self.cmd)
-
-            # # rclpy.spin_once(self, timeout_sec=0.5)
-            
-            # for _ in range(5):
-            #     self.cmd.linear.x = 0.0
-            #     self.cmd.angular.z = 0.0
-            #     self.publisher_.publish(self.cmd)
-            #     sleep(0.3)
             self.stall_time = 0
 
         if self.stall_count:
@@ -196,7 +180,7 @@ class RandomWalk(Node):
 
         elif self.is_start_phase:
             self.cmd.angular.z = 0.0
-            if front_lidar_min < 0.4:
+            if front_lidar_min < 0.8:
                 self.is_start_phase = False
                 self.cmd.linear.x = 0.0
             else:
@@ -204,26 +188,18 @@ class RandomWalk(Node):
             self.publisher_.publish(self.cmd)
 
         elif front_lidar_min < SAFE_STOP_DISTANCE:
-            # if self.turtlebot_moving:
             self.cmd.linear.x = 0.0
             self.cmd.angular.z = 0.2
-            # self.stall_time = 0
             self.publisher_.publish(self.cmd)
-            # self.turtlebot_moving = False
         
         elif front_lidar_min < LIDAR_AVOID_DISTANCE:
             self.cmd.linear.x = 0.1
-            # self.stall_time = 0
-            # self.cmd.angular.z = -0.2
             if right_lidar_min > left_lidar_min:
                 self.cmd.angular.z = -0.2
-            # else:
-            #     self.cmd.angular.z = 0.2
             self.publisher_.publish(self.cmd)
-            # self.turtlebot_moving = True
 
         else:
-            if right_lidar_min < 0.5:
+            if right_lidar_min < 0.53:
                 if front_lidar_min > 0.5:
                     self.cmd.linear.x = 0.2
                 else:
@@ -232,7 +208,6 @@ class RandomWalk(Node):
             elif right_lidar_min > 0.8:
                 self.cmd.linear.x = 0.1
                 self.cmd.angular.z = -0.25
-                # self.stall_time = 0
             elif right_lidar_min > 0.6:
                 self.cmd.linear.x = 0.2
                 self.cmd.angular.z = -0.2
@@ -241,7 +216,6 @@ class RandomWalk(Node):
                 self.cmd.angular.z = 0.0
 
             self.publisher_.publish(self.cmd)
-            # self.turtlebot_moving = True
         
         # Display the message on the console
         self.get_logger().info('Publishing: "%s"' % self.cmd)

@@ -22,12 +22,10 @@ _Table 1 Position information for each zone. Replace the translation and rotatio
 
 ***Hand in a pdf report that includes:***
 
-- A table that lists the total path length and the most distant point in each zone for each trial
+- A table that lists the total path length and the most distant point in each zone for each trial.
 - A figure that plots the robot path for the five trials from each starting position superimposed over the ([image of the apartment](./apartment.png)).
-- Explanation of approach in controller that cites any code used as an example
-- Discussion of implementation that include advantages and disadvantages and rationale for approach
-
-
+- Explanation of approach in controller that cites any code used as an example.
+- Discussion of implementation that include advantages and disadvantages and rationale for approach.
 
 **\*\* Any file updates will be committed to the repository. "Watch" the repository for notifications from github**
 
