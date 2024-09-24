@@ -13,8 +13,8 @@ September 23, 2024
 | **Trial 1** | 97.5 | 9.57 | Blue |
 | **Trial 2** | 76.4 | 8.76 | Green |
 | **Trial 3** | 72.6 | 9.02 | Yellow |
-| **Trial 4** |  |  | Red |
-| **Trial 5** |  |  | Purple |
+| **Trial 4** | 94.3 | 7.66 | Red |
+| **Trial 5** | 54.4 | 8.19 | Purple |
 
 ![Trial 1](images/p1t1.png)
 
